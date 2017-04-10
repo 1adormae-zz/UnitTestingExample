@@ -10,26 +10,21 @@
 import Foundation
 
 protocol DataProvider{
-    func getCollection() -> [String: Any]
+     func getCollection(completionHandler:@escaping CallBack)
 }
 
-class MyDataProvider : DataProvider{
-    func getCollection() -> [String: Any] {
-        //Backend call to get the data
-        return [:]
-    }
-}
 
 struct DataManager {
     private var dataProvider: DataProvider
-    private var internalDataProvide: MyDataProvider?
     
-    init(d: DataProvider = MyDataProvider()) {
+    init(d: DataProvider = NetworkDataProvider()) {
         self.dataProvider = d
     }
     
-    func retrieveCollection() -> [String: Any] {
-        return self.dataProvider.getCollection()
+    func retrieveCollection(completionHandler:@escaping CallBack) {
+        self.dataProvider.getCollection { (response) in
+            completionHandler(response)
+        }
     }
 }
 

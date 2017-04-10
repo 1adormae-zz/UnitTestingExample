@@ -9,18 +9,18 @@
 import Foundation
 
 protocol ViewProtocol : class{
-    func dataIsReady(collection: [String:Any]?)
+    func dataIsReady(collection: [ArtPiece]?)
 }
 
 class Presenter {
     weak var view: ViewProtocol?
-    var artCollection : [String: Any]?
+    var artCollection : [ArtPiece]?
+    var dataManager : DataManager = DataManager()
     
     func getArtCollection() {
-        artCollection = DataManager().retrieveCollection()
-        view?.dataIsReady(collection: artCollection)
+        dataManager.retrieveCollection(completionHandler: { (result) in
+                        self.view?.dataIsReady(collection: result as! [ArtPiece]?)
+                    })
     }
-    
-    
     
 }

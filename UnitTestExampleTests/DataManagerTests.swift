@@ -46,8 +46,11 @@ class DataManagerTests: XCTestCase {
 
 class MockDataProvider : DataProvider
 {
-    func getCollection() -> [String : Any] {
-        let collection = ["001": "NightsWatch"]
+    func getCollection() -> [ArtPiece] {
+        
+        let piece = ArtPiece(id: "01", title: "adri Test", hasImage: false)
+
+        let collection = [piece]
         return collection
     }
 }
