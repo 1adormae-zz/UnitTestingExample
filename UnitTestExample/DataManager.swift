@@ -10,13 +10,26 @@
 import Foundation
 
 protocol DataProvider{
-    func getCollection() -> Dictionary<String, Any>
+    func getCollection() -> [String: Any]
 }
 
-class DataManager {
-    
-    func retrieveCollection() -> Dictionary<String, Any>{
-        DataProvider provider =
+class MyDataProvider : DataProvider{
+    func getCollection() -> [String: Any] {
+        //Backend call to get the data
+        return [:]
     }
-
 }
+
+struct DataManager {
+    private var dataProvider: DataProvider
+    private var internalDataProvide: MyDataProvider?
+    
+    init(d: DataProvider = MyDataProvider()) {
+        self.dataProvider = d
+    }
+    
+    func retrieveCollection() -> [String: Any] {
+        return self.dataProvider.getCollection()
+    }
+}
+
