@@ -20,3 +20,13 @@ func artCollectionMapper (collectionJson: [[String:Any]] ) -> [ArtPiece]
     return artCollection
 
 }
+
+func artPieceMapper(json: [String: Any])-> ArtPiece? {
+    
+    if let id = json["id"] as? String,
+        let title = json["title"] as? String,
+        let hasImahe = json["hasImage"] as? Bool{
+        return ArtPiece(id: id, title: title, hasImage: hasImahe)
+    }
+    return nil
+}

@@ -97,11 +97,11 @@
 				C698764B1E9B80C20052EB38 /* Presenter.swift */,
 				C69976F91E9BA6C9003FF137 /* NetworkDataProvider.swift */,
 				C6F0EE681E9BA30B00F392FA /* ArtPiece.swift */,
+				C69976FC1E9BD1B4003FF137 /* ArtCollectionMapper.swift */,
 				C621AFCD1E97C9A1002397A5 /* Main.storyboard */,
 				C621AFD01E97C9A1002397A5 /* Assets.xcassets */,
 				C621AFD21E97C9A1002397A5 /* LaunchScreen.storyboard */,
 				C621AFD51E97C9A1002397A5 /* Info.plist */,
-				C69976FC1E9BD1B4003FF137 /* ArtCollectionMapper.swift */,
 			);
 			path = UnitTestExample;
 			sourceTree = "<group>";

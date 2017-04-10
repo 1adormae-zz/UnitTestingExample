@@ -27,11 +27,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="141" id="b2P-Lu-mQR">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="artPieceCellIdentifier" rowHeight="141" id="b2P-Lu-mQR" customClass="artPieceTableViewCell" customModule="UnitTestExample" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="141"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b2P-Lu-mQR" id="GNl-t0-x2n">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="140.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="141"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BVp-MU-daK">
@@ -55,8 +55,15 @@
                                                 <constraint firstItem="g3z-D7-WzC" firstAttribute="leading" secondItem="BVp-MU-daK" secondAttribute="trailing" constant="17" id="nMu-6o-RlN"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="title" destination="g3z-D7-WzC" id="vaJ-yp-Cdf"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="9dF-Bw-a9X"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="VGs-ah-kw5"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
