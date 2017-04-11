@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController,ViewProtocol, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController,ViewProtocol, UITableViewDataSource {
     
     var artCollection : [ArtPiece] = []
     @IBOutlet weak var table : UITableView!
@@ -17,14 +17,7 @@ class ViewController: UIViewController,ViewProtocol, UITableViewDelegate, UITabl
         super.viewDidLoad()
         let presenter = Presenter()
         presenter.getArtCollection()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-        
-        
+        presenter.view = self
     }
     
     func dataIsReady(collection: [ArtPiece]?) {
@@ -39,18 +32,27 @@ class ViewController: UIViewController,ViewProtocol, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ArtPieceTableViewCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "artPieceCellIdentifier", for: indexPath)
             
         if let cell = cell as? ArtPieceTableViewCell {
-            cell.title.text = (artCollection[indexPath.row]).title
+            let artPiece = artCollection[indexPath.row]
+            cell.title.text = artPiece.title
+            if let imageURL = artPiece.imageURL {
+                cell.imagePiece.imageFromUrl(urlString: imageURL)
+            }
+            else{
+                cell.imagePiece?.image = UIImage.init(named: "Placeholder.png")
+            }
         }
-        
         return cell
     }
+    
 }
 
 class ArtPieceTableViewCell : UITableViewCell{
     @IBOutlet weak var title : UILabel!
+    @IBOutlet weak var imagePiece : UIImageView!
+    
     
 }
 

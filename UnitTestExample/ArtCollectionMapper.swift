@@ -9,8 +9,7 @@
 import Foundation
 
 
-func artCollectionMapper (collectionJson: [[String:Any]] ) -> [ArtPiece]
-{
+func artCollectionMapper (collectionJson: [[String:Any]] ) -> [ArtPiece]{
     var artCollection : [ArtPiece] = []
     for dictionary in collectionJson{
         if let piece = artPieceMapper(json: dictionary){
@@ -18,15 +17,19 @@ func artCollectionMapper (collectionJson: [[String:Any]] ) -> [ArtPiece]
         }
     }
     return artCollection
-
 }
 
 func artPieceMapper(json: [String: Any])-> ArtPiece? {
-    
     if let id = json["id"] as? String,
         let title = json["title"] as? String,
-        let hasImahe = json["hasImage"] as? Bool{
-        return ArtPiece(id: id, title: title, hasImage: hasImahe)
+        let hasImage = json["hasImage"] as? Bool{
+        if hasImage{
+            if let webJson = json["webImage"] as? [String: Any],
+                let url = webJson["url"] as? String {
+                return ArtPiece(id: id, title: title, hasImage: hasImage, imageURL: url)
+            }
+        }
+        return ArtPiece(id: id, title: title, hasImage: hasImage)
     }
     return nil
 }

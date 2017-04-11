@@ -19,6 +19,7 @@ class ArtPiece{
         self.id = id
         self.title = title
         self.hasImage = hasImage
+        self.imageURL = imageURL
     }
 
 }

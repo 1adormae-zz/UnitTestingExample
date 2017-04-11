@@ -37,7 +37,9 @@ class NetworkDataProvider: DataProvider{
                     completionHandler(nil)
                     return
                 }
-                completionHandler( artCollectionMapper(collectionJson: collectionDictionary))
+                DispatchQueue.main.async {
+                    completionHandler( artCollectionMapper(collectionJson: collectionDictionary))
+                }
                 
             } catch{
                 completionHandler(nil)
