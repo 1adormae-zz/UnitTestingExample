@@ -15,7 +15,7 @@ class ArtPiece{
     var hasImage: Bool
     var imageURL: String?
     
-    init(id:String, title:String, hasImage:Bool, imageURL : String = ""){
+    init(id: String, title: String, hasImage: Bool, imageURL: String = ""){
         self.id = id
         self.title = title
         self.hasImage = hasImage

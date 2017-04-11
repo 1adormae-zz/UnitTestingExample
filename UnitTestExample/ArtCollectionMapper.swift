@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 func artCollectionMapper (collectionJson: [[String:Any]] ) -> [ArtPiece]{
     var artCollection : [ArtPiece] = []
     for dictionary in collectionJson{
