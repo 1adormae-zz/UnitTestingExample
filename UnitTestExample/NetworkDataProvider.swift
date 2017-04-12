@@ -10,7 +10,7 @@ import Foundation
 
 typealias CallBack = ((Any?) -> Void)
 
-class NetworkDataProvider: DataProvider{
+class NetworkDataProvider: DataProviderProtocol{
     
     func getCollection(completionHandler: @escaping CallBack)  {
         let todoEndpoint: String = "https://www.rijksmuseum.nl/api/nl/collection?q=rembrant&key=uQIiUF3Q&format=json"

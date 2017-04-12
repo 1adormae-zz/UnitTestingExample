@@ -27,6 +27,7 @@
 		C699770A1E9D0218003FF137 /* Collection.json in Resources */ = {isa = PBXBuildFile; fileRef = C69977091E9D0218003FF137 /* Collection.json */; };
 		C699770C1E9D0335003FF137 /* ArtCollectionMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69976FC1E9BD1B4003FF137 /* ArtCollectionMapper.swift */; };
 		C699770D1E9D0439003FF137 /* NetworkDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69976F91E9BA6C9003FF137 /* NetworkDataProvider.swift */; };
+		C699770F1E9E550D003FF137 /* CollectionTableViewSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C699770E1E9E550D003FF137 /* CollectionTableViewSource.swift */; };
 		C6F0EE691E9BA30B00F392FA /* ArtPiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F0EE681E9BA30B00F392FA /* ArtPiece.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,7 @@
 		C69977051E9CE0F5003FF137 /* UIImageView+URLImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+URLImage.swift"; sourceTree = "<group>"; };
 		C69977071E9CFB97003FF137 /* ArtCollectionMaperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtCollectionMaperTests.swift; sourceTree = "<group>"; };
 		C69977091E9D0218003FF137 /* Collection.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Collection.json; sourceTree = "<group>"; };
+		C699770E1E9E550D003FF137 /* CollectionTableViewSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionTableViewSource.swift; sourceTree = "<group>"; };
 		C6F0EE681E9BA30B00F392FA /* ArtPiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtPiece.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,6 +116,7 @@
 				C621AFD01E97C9A1002397A5 /* Assets.xcassets */,
 				C621AFD21E97C9A1002397A5 /* LaunchScreen.storyboard */,
 				C621AFD51E97C9A1002397A5 /* Info.plist */,
+				C699770E1E9E550D003FF137 /* CollectionTableViewSource.swift */,
 			);
 			path = UnitTestExample;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				C6702C0D1E97D0270016BBCA /* DataManager.swift in Sources */,
 				C698764C1E9B80C20052EB38 /* Presenter.swift in Sources */,
 				C621AFCA1E97C9A1002397A5 /* AppDelegate.swift in Sources */,
+				C699770F1E9E550D003FF137 /* CollectionTableViewSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

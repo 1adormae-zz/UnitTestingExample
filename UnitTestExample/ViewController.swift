@@ -8,9 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController,ViewProtocol, UITableViewDataSource {
+class ViewController: UIViewController,ViewProtocol {
     
     var artCollection : [ArtPiece] = []
+    var dataSource : ColletionTableViewSource?
+    
     @IBOutlet weak var table : UITableView!
     
     override func viewDidLoad() {
@@ -18,41 +20,20 @@ class ViewController: UIViewController,ViewProtocol, UITableViewDataSource {
         let presenter = Presenter()
         presenter.getArtCollection()
         presenter.view = self
+        dataSource = ColletionTableViewSource(collection: artCollection)
     }
     
     func dataIsReady(collection: [ArtPiece]?) {
         if let collectionResult = collection{
             artCollection = collectionResult
-            self.table.reloadData()
+            table.reloadData()
         }
     }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return artCollection.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "artPieceCellIdentifier", for: indexPath)
-            
-        if let cell = cell as? ArtPieceTableViewCell {
-            let artPiece = artCollection[indexPath.row]
-            cell.title.text = artPiece.title
-            if let imageURL = artPiece.imageURL {
-                cell.imagePiece.imageFromUrl(urlString: imageURL)
-            }
-            else{
-                cell.imagePiece?.image = UIImage.init(named: "Placeholder.png")
-            }
-        }
-        return cell
-    }
-    
-}
+ }
 
 class ArtPieceTableViewCell : UITableViewCell{
     @IBOutlet weak var title : UILabel!
     @IBOutlet weak var imagePiece : UIImageView!
-    
     
 }
 

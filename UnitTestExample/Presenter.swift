@@ -15,12 +15,17 @@ protocol ViewProtocol : class{
 class Presenter {
     weak var view: ViewProtocol?
     var artCollection : [ArtPiece]?
-    var dataManager : DataManager = DataManager()
+    var dataManager = DataManager()
     
     func getArtCollection() {
-        dataManager.retrieveCollection(completionHandler: { (result) in
-                        self.view?.dataIsReady(collection: result as! [ArtPiece]?)
-                    })
+        dataManager.retrieveCollection(completionHandler: { result in
+            guard let collectionArray = result as? [ArtPiece]
+            else {
+                self.view?.dataIsReady(collection: nil)
+                return
+            }
+            
+            self.view?.dataIsReady(collection: collectionArray)
+        })
     }
-    
 }

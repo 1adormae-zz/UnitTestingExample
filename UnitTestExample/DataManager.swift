@@ -9,20 +9,20 @@
 //
 import Foundation
 
-protocol DataProvider{
+protocol DataProviderProtocol{
      func getCollection(completionHandler:@escaping CallBack)
 }
 
 
 struct DataManager {
-    private var dataProvider: DataProvider
+    private var dataProvider: DataProviderProtocol
     
-    init(d: DataProvider = NetworkDataProvider()) {
+    init(d: DataProviderProtocol = NetworkDataProvider()) {
         self.dataProvider = d
     }
     
     func retrieveCollection(completionHandler:@escaping CallBack) {
-        self.dataProvider.getCollection { (response) in
+        self.dataProvider.getCollection { response in
             completionHandler(response)
         }
     }

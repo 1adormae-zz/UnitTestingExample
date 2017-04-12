@@ -51,7 +51,7 @@ class MockDataProvider : DataProvider
 {
     func getCollection(completionHandler: @escaping CallBack) {
         
-        let piece = ArtPiece(id: "01", title: "adri Test", hasImage: false)
+        let piece = ArtPiece(id: "01", title: "adri Test", hasImage: false, imageURL: nil)
         
         let collection = [piece]
        
