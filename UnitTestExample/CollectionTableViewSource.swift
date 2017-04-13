@@ -17,6 +17,10 @@ class ColletionTableViewSource: NSObject, UITableViewDataSource {
         self.artCollection = collection
     }
     
+    func reloadWithCollection (collection : [ArtPiece]) {
+        self.artCollection = collection
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return artCollection.count
     }
@@ -26,14 +30,8 @@ class ColletionTableViewSource: NSObject, UITableViewDataSource {
         
         if let cell = cell as? ArtPieceTableViewCell {
             let artPiece = artCollection[indexPath.row]
-            cell.title.text = artPiece.title
-            if let imageURL = artPiece.imageURL {
-                cell.imagePiece.imageFromUrl(urlString: imageURL)
-            }
-            else{
-                cell.imagePiece?.image = UIImage.init(named: "Placeholder.png")
-            }
-        }
+            cell.configure(artPiece: artPiece)
+                   }
         return cell
     }
 }

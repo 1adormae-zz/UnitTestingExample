@@ -62,10 +62,6 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="9dF-Bw-a9X"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="VGs-ah-kw5"/>
-                                </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rijksmuseum Rembramt Collection" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ltt-kK-sVJ">
                                 <rect key="frame" x="19.5" y="38" width="336" height="21"/>

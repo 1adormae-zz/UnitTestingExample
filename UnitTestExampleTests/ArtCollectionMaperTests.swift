@@ -10,41 +10,24 @@ import XCTest
 
 class ArtCollectionMaperTests: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
     func testArtCollectionMapper() {
-        
-        
-        let mockDictionary = generateJson(fromFile: "collection")
-        if let mockPiecesDictionary = mockDictionary as? [[String:Any]]  {
-             let arrayArtPieces = artCollectionMapper(collectionJson: mockPiecesDictionary)
-          XCTAssertNotNil(arrayArtPieces)
-          XCTAssertEqual(arrayArtPieces.count ,3)
-        }
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+        let mockDictionary = generateJson(fromFile: "Collection")
+        XCTAssert(mockDictionary is [String: Any])
+        if let mockDic = mockDictionary as? [String: Any]{
+            XCTAssert(mockDic["artObjects"] is [[String:Any]])
+            if let arrayOfDict = mockDic["artObjects"] as? [[String:Any]]{
+            let arrayArtPieces = artCollectionMapper(collectionJson: arrayOfDict)
+            XCTAssertNotNil(arrayArtPieces)
+            XCTAssertEqual(arrayArtPieces.count ,3)
+            XCTAssertNotNil(arrayArtPieces[1] as? ArtPiece)
+            }}
     }
     
 }
 
-
-
-
 public func generateJson(fromFile: String) -> Any? {
     do {
+        
         if let file = Bundle.main.url(forResource: fromFile, withExtension: "json") {
             let data = try Data(contentsOf: file)
             let json = try JSONSerialization.jsonObject(with: data, options: [])

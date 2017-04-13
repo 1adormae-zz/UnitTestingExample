@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ArtPiece{
+class ArtPiece {
     
     private(set) var id : String
     private(set) var title : String

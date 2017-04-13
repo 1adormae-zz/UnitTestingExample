@@ -21,19 +21,33 @@ class ViewController: UIViewController,ViewProtocol {
         presenter.getArtCollection()
         presenter.view = self
         dataSource = ColletionTableViewSource(collection: artCollection)
+        table.dataSource = dataSource
     }
     
     func dataIsReady(collection: [ArtPiece]?) {
         if let collectionResult = collection{
             artCollection = collectionResult
+            dataSource?.reloadWithCollection(collection: artCollection)
             table.reloadData()
         }
     }
  }
 
+
 class ArtPieceTableViewCell : UITableViewCell{
     @IBOutlet weak var title : UILabel!
     @IBOutlet weak var imagePiece : UIImageView!
+    
+    func configure(artPiece: ArtPiece){
+        self.title.text = artPiece.title
+        if let imageURL = artPiece.imageURL {
+            self.imagePiece.imageFromUrl(urlString: imageURL)
+        }
+        else{
+            self.imagePiece?.image = UIImage.init(named: "Placeholder.png")
+        }
+        
+    }
     
 }
 

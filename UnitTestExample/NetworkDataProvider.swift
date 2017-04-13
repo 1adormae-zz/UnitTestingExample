@@ -29,6 +29,7 @@ class NetworkDataProvider: DataProviderProtocol{
             // do stuff with response, data & error here
             guard let responseData = data  else{
                 completionHandler(nil)
+                print("ERROR: Empty response from www.rijksmuseum.nl")
                 return
             }
             do {

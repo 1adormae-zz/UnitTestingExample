@@ -28,6 +28,8 @@
 		C699770C1E9D0335003FF137 /* ArtCollectionMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69976FC1E9BD1B4003FF137 /* ArtCollectionMapper.swift */; };
 		C699770D1E9D0439003FF137 /* NetworkDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69976F91E9BA6C9003FF137 /* NetworkDataProvider.swift */; };
 		C699770F1E9E550D003FF137 /* CollectionTableViewSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C699770E1E9E550D003FF137 /* CollectionTableViewSource.swift */; };
+		C6CB4CFD1E9F7F3400BB461D /* CollectionTableViewSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C699770E1E9E550D003FF137 /* CollectionTableViewSource.swift */; };
+		C6CB4CFF1E9F985B00BB461D /* Collection.json in Resources */ = {isa = PBXBuildFile; fileRef = C69977091E9D0218003FF137 /* Collection.json */; };
 		C6F0EE691E9BA30B00F392FA /* ArtPiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F0EE681E9BA30B00F392FA /* ArtPiece.swift */; };
 /* End PBXBuildFile section */
 
@@ -107,6 +109,7 @@
 				C69976FE1E9CD2E6003FF137 /* Categories */,
 				C621AFC91E97C9A1002397A5 /* AppDelegate.swift */,
 				C621AFCB1E97C9A1002397A5 /* ViewController.swift */,
+				C699770E1E9E550D003FF137 /* CollectionTableViewSource.swift */,
 				C6702C0C1E97D0270016BBCA /* DataManager.swift */,
 				C698764B1E9B80C20052EB38 /* Presenter.swift */,
 				C69976F91E9BA6C9003FF137 /* NetworkDataProvider.swift */,
@@ -116,7 +119,6 @@
 				C621AFD01E97C9A1002397A5 /* Assets.xcassets */,
 				C621AFD21E97C9A1002397A5 /* LaunchScreen.storyboard */,
 				C621AFD51E97C9A1002397A5 /* Info.plist */,
-				C699770E1E9E550D003FF137 /* CollectionTableViewSource.swift */,
 			);
 			path = UnitTestExample;
 			sourceTree = "<group>";
@@ -225,6 +227,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6CB4CFF1E9F985B00BB461D /* Collection.json in Resources */,
 				C621AFD41E97C9A1002397A5 /* LaunchScreen.storyboard in Resources */,
 				C69977041E9CDC96003FF137 /* placeholder.png in Resources */,
 				C621AFD11E97C9A1002397A5 /* Assets.xcassets in Resources */,
@@ -271,6 +274,7 @@
 				C69977081E9CFB98003FF137 /* ArtCollectionMaperTests.swift in Sources */,
 				C698764F1E9B89410052EB38 /* ViewController.swift in Sources */,
 				C698764D1E9B893B0052EB38 /* DataManager.swift in Sources */,
+				C6CB4CFD1E9F7F3400BB461D /* CollectionTableViewSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
