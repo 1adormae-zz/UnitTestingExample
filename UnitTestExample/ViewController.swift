@@ -7,19 +7,25 @@
 //
 
 import UIKit
+protocol ViewInterface : class{
+    func dataIsReady(collection: [ArtPiece]?)
+}
 
-class ViewController: UIViewController,ViewProtocol {
+class ViewController: UIViewController, ViewInterface {
     
     var artCollection : [ArtPiece] = []
     var dataSource : ColletionTableViewSource?
+    var eventHandler: PresenterInterface!
     
     @IBOutlet weak var table : UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let presenter = Presenter()
-        presenter.getArtCollection()
-        presenter.view = self
+      
+        eventHandler = Presenter()
+        eventHandler.view = self
+        eventHandler.updateView()
+        
         dataSource = ColletionTableViewSource(collection: artCollection)
         table.dataSource = dataSource
     }

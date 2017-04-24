@@ -19,7 +19,7 @@ class ArtCollectionMaperTests: XCTestCase {
             let arrayArtPieces = artCollectionMapper(collectionJson: arrayOfDict)
             XCTAssertNotNil(arrayArtPieces)
             XCTAssertEqual(arrayArtPieces.count ,3)
-            XCTAssertNotNil(arrayArtPieces[1] as? ArtPiece)
+            XCTAssertNotNil(arrayArtPieces[1].title)
             }}
     }
     

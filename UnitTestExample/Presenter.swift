@@ -8,16 +8,18 @@
 
 import Foundation
 
-protocol ViewProtocol : class{
-    func dataIsReady(collection: [ArtPiece]?)
+protocol PresenterInterface {
+    func updateView()
+    weak var view: ViewInterface? {set get}
 }
 
-class Presenter {
-    weak var view: ViewProtocol?
+class Presenter: PresenterInterface {
+    weak var view: ViewInterface?
     var artCollection : [ArtPiece]?
     var dataManager = DataManager()
     
     func getArtCollection() {
+        
         dataManager.retrieveCollection(completionHandler: { result in
             guard let collectionArray = result as? [ArtPiece]
             else {
@@ -28,4 +30,11 @@ class Presenter {
             self.view?.dataIsReady(collection: collectionArray)
         })
     }
+    
+    func updateView() {
+        // bussiness logic: getting data from netwrok call
+        getArtCollection()
+    }
 }
+
+

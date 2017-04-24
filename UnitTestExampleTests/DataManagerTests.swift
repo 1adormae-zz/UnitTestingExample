@@ -13,13 +13,13 @@ class DataManagerTests: XCTestCase {
     
     func testInitDataManager() {
         
-        let dataManager = DataManager(d: MockDataProvider())
+        let dataManager = DataManager(d: DataProviderMock())
         XCTAssertNotNil(dataManager)
     }
     
     func testRetrieveCollection() {
         
-        let dataManager = DataManager(d: MockDataProvider())
+        let dataManager = DataManager(d: DataProviderMock())
         var collection : [ArtPiece] = []
         dataManager.retrieveCollection { (result) in
             collection = result as! [ArtPiece]
@@ -36,18 +36,4 @@ class DataManagerTests: XCTestCase {
         }
     }
 }
-
-
-class MockDataProvider : DataProviderProtocol
-{
-    func getCollection(completionHandler: @escaping CallBack) {
-        
-        let piece = ArtPiece(id: "01", title: "adri Test", hasImage: false, imageURL: nil)
-        
-        let collection = [piece]
-       
-        completionHandler(collection)
-    }
-}
-
 
