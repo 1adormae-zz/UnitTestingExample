@@ -9,11 +9,12 @@
 import Foundation
 
 protocol PresenterInterface {
-    func updateView()
     weak var view: ViewInterface? {set get}
+    func updateView()
 }
 
 class Presenter: PresenterInterface {
+    
     weak var view: ViewInterface?
     var artCollection : [ArtPiece]?
     var dataManager = DataManager()
@@ -26,13 +27,11 @@ class Presenter: PresenterInterface {
                 self.view?.dataIsReady(collection: nil)
                 return
             }
-            
             self.view?.dataIsReady(collection: collectionArray)
         })
     }
     
     func updateView() {
-        // bussiness logic: getting data from netwrok call
         getArtCollection()
     }
 }
