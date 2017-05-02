@@ -8,20 +8,19 @@
 
 import Foundation
 
-func artCollectionMapper (collectionJson: [[String:Any]] ) -> [ArtPiece] {
-    
+func artCollectionMapper(collectionJson: [[String:Any]] ) -> [ArtPiece] {
     var artCollection = [ArtPiece]()
     
-    for dictionary in collectionJson{
-        if let piece = artPieceMapper(json: dictionary){
+    for dictionary in collectionJson {
+        if let piece = artPieceMapper(json: dictionary) {
             artCollection.append(piece)
         }
     }
+    
     return artCollection
 }
 
 private func artPieceMapper(json: [String: Any])-> ArtPiece? {
-    
     if let id = json["id"] as? String,
         let title = json["title"] as? String,
         let hasImage = json["hasImage"] as? Bool {

@@ -7,53 +7,39 @@
 //
 
 import UIKit
-protocol ViewInterface : class{
-    func dataIsReady(collection: [ArtPiece]?)
+
+protocol ViewControllerInterface : class {
+    func updateView(collection: [ArtPiece]?)
 }
 
-class ViewController: UIViewController, ViewInterface {
+class ViewController: UIViewController {
     
-    var artCollection : [ArtPiece] = []
+    var artCollection = [ArtPiece]()
     var dataSource : ColletionTableViewSource?
     var eventHandler: PresenterInterface!
     
-    @IBOutlet weak var table : UITableView!
+    @IBOutlet private(set) weak var table : UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
       
         eventHandler = Presenter()
         eventHandler.view = self
-        eventHandler.updateView()
+        eventHandler.getArtCollection()
         
-        dataSource = ColletionTableViewSource(collection: artCollection)
+        dataSource = ColletionTableViewSource()
         table.dataSource = dataSource
-    }
-    
-    func dataIsReady(collection: [ArtPiece]?) {
-        if let collectionResult = collection{
-            artCollection = collectionResult
-            dataSource?.reloadWithCollection(collection: artCollection)
-            table.reloadData()
-        }
     }
  }
 
-
-class ArtPieceTableViewCell : UITableViewCell{
-    @IBOutlet weak var title : UILabel!
-    @IBOutlet weak var imagePiece : UIImageView!
+extension ViewController: ViewControllerInterface {
     
-    func configure(artPiece: ArtPiece){
-        self.title.text = artPiece.title
-        if let imageURL = artPiece.imageURL {
-            self.imagePiece.imageFromUrl(urlString: imageURL)
+    func updateView(collection: [ArtPiece]?) {
+        if let collectionResult = collection {
+            artCollection = collectionResult
+            dataSource?.showCollection(collection: artCollection)
+            table.reloadData()
         }
-        else{
-            self.imagePiece?.image = UIImage.init(named: "Placeholder.png")
-        }
-        
     }
-    
 }
 

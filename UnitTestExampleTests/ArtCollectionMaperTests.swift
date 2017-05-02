@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import UnitTestExample
 
 class ArtCollectionMaperTests: XCTestCase {
     
@@ -25,6 +26,7 @@ class ArtCollectionMaperTests: XCTestCase {
     
 }
 
+// TODO: Fix this Ata(self)
 public func generateJson(fromFile: String) -> Any? {
     do {
         

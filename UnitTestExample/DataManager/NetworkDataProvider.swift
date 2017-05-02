@@ -34,7 +34,7 @@ class NetworkDataProvider: DataProviderProtocol{
             }
             do {
                 let json =   try JSONSerialization.jsonObject(with: responseData, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
-                guard let collectionDictionary = json["artObjects"] as? [[String: Any]] else{
+                guard let collectionDictionary = json["artObjects"] as? [[String: Any]] else {
                     completionHandler(nil)
                     return
                 }
@@ -42,7 +42,8 @@ class NetworkDataProvider: DataProviderProtocol{
                     completionHandler( artCollectionMapper(collectionJson: collectionDictionary))
                 }
                 
-            } catch{
+            }
+            catch {
                 completionHandler(nil)
             }
         })

@@ -7,10 +7,11 @@
 //
 //   This Class is resposable to retrieve or save the data
 //
+
 import Foundation
 
-protocol DataProviderProtocol{
-     func getCollection(completionHandler:@escaping CallBack)
+protocol DataProviderProtocol {
+    func getCollection(completionHandler:@escaping CallBack)
 }
 
 class DataManager {

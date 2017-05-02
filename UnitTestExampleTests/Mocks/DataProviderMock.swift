@@ -7,13 +7,11 @@
 //
 
 import Foundation
+@testable import UnitTestExample
 
-class DataProviderMock : DataProviderProtocol
-{
+class DataProviderMock: DataProviderProtocol {
     func getCollection(completionHandler: @escaping CallBack) {
-        
         let piece = ArtPiece(id: "01", title: "adri Test", hasImage: false, imageURL: nil)
-        
         let collection = [piece]
         
         completionHandler(collection)

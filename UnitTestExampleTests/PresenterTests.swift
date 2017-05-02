@@ -7,15 +7,25 @@
 //
 
 import XCTest
+@testable import UnitTestExample
+
+class ViewControllerInterfaceMock: ViewControllerInterface {
+    var isViewUpdated: Bool = false
+    var collectionData: [ArtPiece]?
+    
+    func updateView(collection: [ArtPiece]?) {
+        collectionData = collection
+        isViewUpdated = true
+    }
+}
 
 class PresenterTests: XCTestCase {
 
     // MARK: - Test variables.
     // Stands for: System under test
     var sut: Presenter!
-    var viewMock: ViewControllerMock!
+    var viewMock: ViewControllerInterfaceMock!
     let dataManagerMock = DataManagerMock(d: DataProviderMock())
-
     
     // MARK: - Set up and tear down.
 
@@ -26,7 +36,7 @@ class PresenterTests: XCTestCase {
     
     func createSut() {
         sut = Presenter()
-        viewMock = ViewControllerMock()
+        viewMock = ViewControllerInterfaceMock()
         sut.view = viewMock
         sut.dataManager = dataManagerMock
     }
@@ -48,23 +58,12 @@ class PresenterTests: XCTestCase {
     
     func testIsViewUpdatedCalled() {
         // Test
-        sut.updateView()
+        sut.getArtCollection()
         
         // Verify
         XCTAssertTrue(viewMock.isViewUpdated)
         XCTAssertEqual(viewMock.collectionData?.count, 1)
         XCTAssertEqual(viewMock.collectionData?.first?.id, "01")
         XCTAssertEqual(viewMock.collectionData?.first?.title, "adri Test")
-    }
-    
-    // MARK: Mocks and stups
-    
-    class ViewControllerMock: ViewInterface {
-        var isViewUpdated: Bool = false
-        var collectionData: [ArtPiece]?
-        func dataIsReady(collection: [ArtPiece]?) {
-            collectionData = collection
-            isViewUpdated = true
-        }
     }
 }

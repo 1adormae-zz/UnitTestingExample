@@ -9,30 +9,20 @@
 import Foundation
 
 protocol PresenterInterface {
-    weak var view: ViewInterface? {set get}
-    func updateView()
+    weak var view: ViewControllerInterface? { set get }
+    
+    func getArtCollection()
 }
 
 class Presenter: PresenterInterface {
     
-    weak var view: ViewInterface?
-    var artCollection : [ArtPiece]?
+    weak var view: ViewControllerInterface?
     var dataManager = DataManager()
     
     func getArtCollection() {
-        
         dataManager.retrieveCollection(completionHandler: { result in
-            guard let collectionArray = result as? [ArtPiece]
-            else {
-                self.view?.dataIsReady(collection: nil)
-                return
-            }
-            self.view?.dataIsReady(collection: collectionArray)
+            self.view?.updateView(collection: result as? [ArtPiece])
         })
-    }
-    
-    func updateView() {
-        getArtCollection()
     }
 }
 

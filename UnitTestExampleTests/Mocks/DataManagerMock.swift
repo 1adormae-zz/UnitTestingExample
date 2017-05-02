@@ -7,6 +7,7 @@
 //
 
 import Foundation
+@testable import UnitTestExample
 
 class DataManagerMock: DataManager {
     override func retrieveCollection(completionHandler: @escaping CallBack) {
