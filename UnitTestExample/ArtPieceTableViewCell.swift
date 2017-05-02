@@ -8,17 +8,18 @@
 
 import UIKit
 
-class ArtPieceTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+class ArtPieceTableViewCell : UITableViewCell {
+    @IBOutlet weak var title : UILabel!
+    @IBOutlet weak var imagePiece : UIImageView!
+    
+    func configure(artPiece: ArtPiece) {
+        self.title.text = artPiece.title
+        
+        if let imageURL = artPiece.imageURL {
+            self.imagePiece.imageFromUrl(urlString: imageURL)
+        }
+        else {
+            self.imagePiece?.image = UIImage.init(named: "Placeholder.png")
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }
