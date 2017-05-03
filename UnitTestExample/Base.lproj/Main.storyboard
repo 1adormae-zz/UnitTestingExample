@@ -1,14 +1,20 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="UnitTestExample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +22,73 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="141" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MDU-4g-jSP">
+                                <rect key="frame" x="0.0" y="97" width="375" height="556"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="artPieceCellIdentifier" rowHeight="141" id="b2P-Lu-mQR" customClass="ArtPieceTableViewCell" customModule="UnitTestExample" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="141"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b2P-Lu-mQR" id="GNl-t0-x2n">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="141"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BVp-MU-daK">
+                                                    <rect key="frame" x="37.5" y="52" width="50" height="37"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="37" id="QHL-3V-PpM"/>
+                                                        <constraint firstAttribute="width" constant="50" id="eet-r7-fOC"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3z-D7-WzC">
+                                                    <rect key="frame" x="104.5" y="63" width="242.5" height="15.5"/>
+                                                    <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="BVp-MU-daK" firstAttribute="centerX" secondItem="GNl-t0-x2n" secondAttribute="centerX" multiplier="1/3" id="Jhb-nk-riL"/>
+                                                <constraint firstItem="g3z-D7-WzC" firstAttribute="centerY" secondItem="GNl-t0-x2n" secondAttribute="centerY" id="KHs-mG-XnT"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="g3z-D7-WzC" secondAttribute="trailing" constant="20" id="NuA-vW-oTC"/>
+                                                <constraint firstItem="BVp-MU-daK" firstAttribute="centerY" secondItem="GNl-t0-x2n" secondAttribute="centerY" id="hYO-VL-nsi"/>
+                                                <constraint firstItem="g3z-D7-WzC" firstAttribute="leading" secondItem="BVp-MU-daK" secondAttribute="trailing" constant="17" id="nMu-6o-RlN"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="imagePiece" destination="BVp-MU-daK" id="rBT-hM-eTs"/>
+                                            <outlet property="title" destination="g3z-D7-WzC" id="vaJ-yp-Cdf"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rijksmuseum Rembramt Collection" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ltt-kK-sVJ">
+                                <rect key="frame" x="19.5" y="38" width="336" height="21"/>
+                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ltt-kK-sVJ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="18" id="023-ms-SwM"/>
+                            <constraint firstItem="ltt-kK-sVJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="3.5" id="7e3-Di-OzA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ltt-kK-sVJ" secondAttribute="trailing" constant="3.5" id="Uts-W5-LJ4"/>
+                            <constraint firstItem="MDU-4g-jSP" firstAttribute="top" secondItem="ltt-kK-sVJ" secondAttribute="bottom" constant="38" id="bXA-gr-o0c"/>
+                            <constraint firstAttribute="trailing" secondItem="MDU-4g-jSP" secondAttribute="trailing" id="p5v-9M-DH7"/>
+                            <constraint firstItem="ltt-kK-sVJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pvB-JF-4Mk"/>
+                            <constraint firstItem="MDU-4g-jSP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="s98-do-ypl"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="MDU-4g-jSP" secondAttribute="bottom" constant="14" id="wLQ-cc-ILc"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="table" destination="MDU-4g-jSP" id="W14-yj-TlM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="122.78860569715144"/>
         </scene>
     </scenes>
 </document>
