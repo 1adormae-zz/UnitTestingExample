@@ -8,18 +8,38 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+protocol ViewControllerInterface : class {
+    func updateView(collection: [ArtPiece]?)
+}
 
+class ViewController: UIViewController {
+    
+    var artCollection = [ArtPiece]()
+    var dataSource : ColletionTableViewSource?
+    var eventHandler: PresenterInterface!
+    
+    @IBOutlet private(set) weak var table : UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+      
+        eventHandler = Presenter()
+        eventHandler.view = self
+        eventHandler.getArtCollection()
+        
+        dataSource = ColletionTableViewSource()
+        table.dataSource = dataSource
     }
+ }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+extension ViewController: ViewControllerInterface {
+    
+    func updateView(collection: [ArtPiece]?) {
+        if let collectionResult = collection {
+            artCollection = collectionResult
+            dataSource?.showCollection(collection: artCollection)
+            table.reloadData()
+        }
     }
-
-
 }
 
